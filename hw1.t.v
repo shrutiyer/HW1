@@ -14,13 +14,13 @@ module demorgan_test ();
   initial begin
     $display("A B | ~A ~B | ~A~B ");            // Prints header for truth table
     A=0;B=0; #1                                 // Set A and B, wait for update (#1)
-    $display("%b %b |  %b  %b |    %b  ", A,B, nA, nB, nAandnB);
+    $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAandnB);
     A=0;B=1; #1                                 // Set A and B, wait for new update
-    $display("%b %b |  %b  %b |    %b  ", A,B, nA, nB, nAandnB);
+    $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAandnB);
     A=1;B=0; #1
-    $display("%b %b |  %b  %b |    %b  ", A,B, nA, nB, nAandnB);
+    $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAandnB);
     A=1;B=1; #1
-    $display("%b %b |  %b  %b |    %b  ", A,B, nA, nB, nAandnB);
+    $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAandnB);
 
 		$display("A B | A+B | ~(A+B) ");            
     A=0;B=0; #1                                 
@@ -46,13 +46,13 @@ module demorgan_test ();
 
 		$display("A B | ~A ~B | (~A)+(~B) ");            
     A=0;B=0; #1                                 
-    $display("%b %b |  %b  %b |     %b  ", A,B, nA, nB, nAornB);
+    $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAornB);
     A=0;B=1; #1                            
-    $display("%b %b |  %b  %b |     %b  ", A,B, nA, nB, nAornB);
+    $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAornB);
     A=1;B=0; #1
-    $display("%b %b |  %b  %b |     %b  ", A,B, nA, nB, nAornB);
+    $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAornB);
     A=1;B=1; #1
-    $display("%b %b |  %b  %b |     %b  ", A,B, nA, nB, nAornB);
+    $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAornB);
     $display();
 
   end
