@@ -20,20 +20,20 @@ module demorgan
   not Ainv(nA, A);      // Top inverter is named Ainv, takes signal A as input and produces signal nA
   not Binv(nB, B);
 
-	// (~A)*(~B)
+  // (~A)*(~B)
   and andgate(nAandnB, nA, nB);     // AND gate produces nAandnB from nA and nB
 
   // ~(A*B)
-	wire AandB;
-	and andgate(AandB, A, B);
-	not AandBinv(nAandB, AandB);
-	
-	// ~(A+B)
-	wire AorB;
-	or orgate(AorB, A, B);
-	not AorBinv(nAorB, AorB);
-
-	// (~A)+(~B)
-	or orgate(nAornB, nA, nB);
+  wire AandB;
+  and andgate(AandB, A, B);
+  not AandBinv(nAandB, AandB);
+  
+  // ~(A+B)
+  wire AorB;
+  or orgate(AorB, A, B);
+  not AorBinv(nAorB, AorB);
+  
+  // (~A)+(~B)
+  or orgate(nAornB, nA, nB);
 
 endmodule
