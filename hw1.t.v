@@ -5,13 +5,14 @@ module demorgan_test ();
   // Instantiate device/module under test
   reg A, B;                		 // Primary test inputs
   wire nA, nB, AandB, AorB;    // Test outputs
-	wire nAandnB, nAandB, nAorB, nAornB;
+  wire nAandnB, nAandB, nAorB, nAornB;
 
-	// Module to be tested
+  // Module to be tested
   demorgan dut(A, B, nA, nB, AandB, AorB, nAandnB, nAandB, nAorB, nAornB);  
 
   // Run sequence of test stimuli
   initial begin
+  
     $display("A B | ~A ~B | ~A~B ");            // Prints header for truth table
     A=0;B=0; #1                                 // Set A and B, wait for update (#1)
     $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAandnB);
@@ -22,7 +23,7 @@ module demorgan_test ();
     A=1;B=1; #1
     $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAandnB);
 
-		$display("A B | A+B | ~(A+B) ");            
+    $display("A B | A+B | ~(A+B) ");            
     A=0;B=0; #1                                 
     $display("%b %b |  %b  |    %b  ", A,B, AorB, nAorB);
     A=0;B=1; #1                            
@@ -44,7 +45,7 @@ module demorgan_test ();
     $display("%b %b |  %b  |   %b  ", A,B, AandB, nAandB);
     $display();
 
-		$display("A B | ~A ~B | (~A)+(~B) ");            
+    $display("A B | ~A ~B | (~A)+(~B) ");            
     A=0;B=0; #1                                 
     $display("%b %b |  %b  %b |   %b  ", A,B, nA, nB, nAornB);
     A=0;B=1; #1                            
